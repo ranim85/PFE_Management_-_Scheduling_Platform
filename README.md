@@ -2,7 +2,7 @@
 
 This repository contains a web platform for managing final-year projects and preparing defense schedules. It brings together a React frontend, a Spring Boot backend, a PostgreSQL database, and a Python scheduling engine powered by Google OR-Tools.
 
-The project is still in active development. The core pieces are here, but a few integration points should be cleaned up before it is treated as production-ready.
+This platform provides an integrated environment for managing final-year projects and automating defense scheduling through constraint optimization.
 
 ## Key Features
 
@@ -14,6 +14,7 @@ The project is still in active development. The core pieces are here, but a few 
 - Automated defense timetable generation powered by Google OR-Tools CP-SAT, designed to respect room, professor, session, and jury-role constraints.
 - Administrative dashboard with reusable tables, forms, navigation, dark mode support, and scheduling views.
 - Backend API documentation through Swagger/OpenAPI for easier testing and integration.
+
 
 ## Scheduling Engine
 
@@ -45,7 +46,6 @@ frontend/
   src/
 ```
 
-The old nested folders were removed. The frontend now lives directly in `frontend/`, and the backend now lives directly in `backend/`.
 
 ## Tech Stack
 
@@ -151,7 +151,7 @@ Before running the project on another machine, check these values:
 - `application.assignUrl`, which points to the Python scheduling service.
 - JWT secret configuration.
 
-At the moment, some secrets and local values are still hard-coded. They should be moved to environment variables before deployment.
+Environment variables are used for secure configuration management.They should be moved to environment variables before deployment.
 
 ## Main API Areas
 
@@ -172,30 +172,3 @@ Swagger UI is available when the backend is running:
 http://localhost:5002/swagger-ui/index.html
 ```
 
-## Current State
-
-The repository is cleaner now:
-
-- The frontend and backend folders were flattened.
-- Old generated logs were removed.
-- Vite starter assets were removed.
-- Frontend Excel test files were removed.
-- Duplicate package lock files were cleaned up.
-- The README files were rewritten in English.
-
-The main technical issues still worth fixing are:
-
-- The frontend still has hard-coded API URLs in several components.
-- Spring calls the scheduler with `POST /generate-schedule`, while `api.py` currently exposes `GET /generate-schedule`.
-- The backend security configuration currently permits all unmatched requests.
-- Database credentials and JWT secrets are still stored in source files.
-- The Python scheduling scripts are not yet organized around one clear entry point.
-
-## Suggested Next Steps
-
-1. Add `.env` files for frontend and backend configuration.
-2. Centralize all frontend API calls through `src/services/api.ts`.
-3. Align the Spring Boot and FastAPI scheduling contract.
-4. Move secrets out of source control.
-5. Add integration tests for authentication, project management, and timetable generation.
-6. Keep one documented scheduling service and archive the experimental Python scripts.

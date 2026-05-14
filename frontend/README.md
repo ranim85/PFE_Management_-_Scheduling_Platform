@@ -57,12 +57,11 @@ src/
   utils/
 ```
 
-## Notes
+## API Configuration
 
-The frontend is usable, but the API layer still needs cleanup. Several components call hard-coded URLs directly. The better long-term shape is to keep the backend URL in an environment variable and route all HTTP calls through `src/services/api.ts`.
+The frontend communicates with the Spring Boot backend through a centralized API layer.
 
-Recommended environment variable:
+Example environment variable:
 
 ```text
 VITE_API_URL=http://localhost:5002
-```

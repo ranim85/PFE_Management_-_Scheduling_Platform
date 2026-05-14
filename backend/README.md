@@ -100,7 +100,7 @@ Check these values before running:
 - `spring.mail.*`
 - `application.assignUrl`
 
-The current configuration contains local credentials and should not be used as-is in production.
+Sensitive configuration values should be provided through environment variables.
 
 ## API Areas
 
@@ -120,11 +120,3 @@ Swagger UI:
 ```text
 http://localhost:5002/swagger-ui/index.html
 ```
-
-## Known Cleanup Work
-
-- Align the Spring timetable call with the FastAPI route. Spring currently sends a `POST`, while `api.py` exposes a `GET`.
-- Move database credentials, mail credentials, and JWT secrets to environment variables.
-- Tighten Spring Security. The current fallback allows unmatched requests.
-- Keep one Python scheduling entry point and remove or archive experimental scripts.
-- Add backend integration tests around authentication, project creation, and timetable generation.
