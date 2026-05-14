@@ -171,4 +171,3 @@ Swagger UI is available when the backend is running:
 ```text
 http://localhost:5002/swagger-ui/index.html
 ```
-

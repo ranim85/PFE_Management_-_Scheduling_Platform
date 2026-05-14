@@ -11,7 +11,7 @@ DB_CONFIG = {
     'port': 5432,
     'database': 'gymapp',
     'user': 'postgres',
-    'password': 'hadil123'
+    'password': '[PASSWORD]'
 }
 
 # -----------------------------
